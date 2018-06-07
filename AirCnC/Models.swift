@@ -37,3 +37,35 @@ class User {
     static let goyangci = User(name: "고양씨", image:"goyangc")
     static let popo = User(name: "뽀뽀", image:"popo")
 }
+
+struct Liked {
+    // Singleton
+    static var shared = Liked()
+    
+    var saves : [Item] = []
+    
+    func isLiked(_ item: Item) -> Bool {
+        for one in saves {
+            // 제품 이름으로 같다고 비교한다. TODO : equal operator 작성
+            if one.name == item.name {
+                return true
+            }
+        }
+        return false
+    }
+    
+    mutating func add(_ item: Item) {
+        self.saves.append(item)
+    }
+    
+    mutating func remove(_ item: Item) {
+        for (index, one) in saves.enumerated() {
+            // 제품 이름으로 같다고 비교한다. TODO : equal operator 작성
+            if one.name == item.name {
+                saves.remove(at: index)
+                return
+            }
+        }
+    }
+
+}

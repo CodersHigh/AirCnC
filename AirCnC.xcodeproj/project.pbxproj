@@ -16,6 +16,7 @@
 		2CA8AABD20C978A900C97AA9 /* Sceenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8AABC20C978A900C97AA9 /* Sceenshot.png */; };
 		2CB8E26F20C9AE4600186AB5 /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E26E20C9AE4600186AB5 /* ExplorerViewController.swift */; };
 		2CB8E27120C9B99A00186AB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E27020C9B99A00186AB5 /* Models.swift */; };
+		2CB8E27420C9C6D800186AB5 /* SavedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E27320C9C6D800186AB5 /* SavedListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2CA8AABC20C978A900C97AA9 /* Sceenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sceenshot.png; sourceTree = "<group>"; };
 		2CB8E26E20C9AE4600186AB5 /* ExplorerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
 		2CB8E27020C9B99A00186AB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2CB8E27320C9C6D800186AB5 /* SavedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedListViewController.swift; path = ../../AirCnC_Draft/AirCnC/AirCnC/SavedListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				2CA8AAAA20C9630000C97AA9 /* ViewController.swift */,
 				2CB8E27020C9B99A00186AB5 /* Models.swift */,
 				2CB8E26E20C9AE4600186AB5 /* ExplorerViewController.swift */,
+				2CB8E27320C9C6D800186AB5 /* SavedListViewController.swift */,
 				2CA8AAAC20C9630000C97AA9 /* Main.storyboard */,
 				2CA8AAAF20C9630100C97AA9 /* Assets.xcassets */,
 				2CA8AAB120C9630100C97AA9 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				2CA8AAAB20C9630000C97AA9 /* ViewController.swift in Sources */,
 				2CB8E26F20C9AE4600186AB5 /* ExplorerViewController.swift in Sources */,
+				2CB8E27420C9C6D800186AB5 /* SavedListViewController.swift in Sources */,
 				2CA8AAA920C9630000C97AA9 /* AppDelegate.swift in Sources */,
 				2CB8E27120C9B99A00186AB5 /* Models.swift in Sources */,
 			);

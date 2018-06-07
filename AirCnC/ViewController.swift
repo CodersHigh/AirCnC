@@ -51,7 +51,17 @@ class ViewController: UIViewController {
     
     // 좋아요/저장 버튼 토글방식으로 동작. touchUpInside와 연결
     @IBAction func handleLike(_ sender: Any) {
-        likeButton.isSelected = !likeButton.isSelected
+        if let item = self.item {
+            // 좋아요 목록에서 제거/좋아요 목록에 추가
+            if Liked.shared.isLiked(item) {
+                Liked.shared.remove(item)
+                likeButton.isSelected = false
+            }
+            else {
+                Liked.shared.add(item)
+                likeButton.isSelected = true
+            }
+        }
     }
     
     // 날짜 선택
@@ -100,6 +110,9 @@ class ViewController: UIViewController {
             showImage(index: 0)
             
             self.title = item.name
+            
+            // 좋아요가 눌러졌는지 좋아요 버튼에 반영
+            likeButton.isSelected = Liked.shared.isLiked(item)
         }       
         
         // 날짜 레이블 설정

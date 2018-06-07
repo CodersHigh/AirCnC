@@ -1,9 +1,9 @@
 # Coder's High AirCnC Example
 
-## Step4 목록 상세
+## Step5 멀티 씬
 
-- 내비게이션 컨트롤러를 이용해서 목록/상세 씬 구조 만들기
-- 세그웨이를 이용해서 씬 전환시 데이터 전달
-- 복잡한 모델 작성(구조체, 클래스)
+- 탭바 컨트롤러를 이용해서 병렬 씬 구조 만들기
+- 탭 기반의 씬에서 데이터 공유
+- 테이블 뷰에서 항목 삭제
 
-![](https://github.com/CodersHigh/AirCnC/blob/Step4/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step5/Sceenshot.png?raw=true)
