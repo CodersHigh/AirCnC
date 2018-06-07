@@ -1,11 +1,8 @@
 # Coder's High AirCnC Example
 
-## 씬과 뷰
+## Step2 인터랙티브
 
-  - 씬에 뷰 배치하기
-  - 씬의 라이프사이클
-  - 오토 레이아웃, 스택뷰
-  - 이미지와 애셋
-  - Outlet과 콘텐츠 입력
+  - 컨트롤과 컨트롤 이벤트 다루기
+  - 컨트롤의 상태
 
-![](https://github.com/CodersHigh/AirCnC/blob/master/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step2/Sceenshot.png?raw=true)
