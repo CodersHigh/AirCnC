@@ -1,10 +1,9 @@
 # Coder's High AirCnC Example
 
-## Step3 목록씬
+## Step4 목록 상세
 
-- 테이블 뷰 컨트롤러를 이용해서 목록 만들기
-- 테이블 뷰의 데이터소스 작성하기
-- 기본셀 스타일과 콘텐츠 출력
-- 간단한 모델 작성
+- 내비게이션 컨트롤러를 이용해서 목록/상세 씬 구조 만들기
+- 세그웨이를 이용해서 씬 전환시 데이터 전달
+- 복잡한 모델 작성(구조체, 클래스)
 
-![](https://github.com/CodersHigh/AirCnC/blob/Step3/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step4/Sceenshot.png?raw=true)

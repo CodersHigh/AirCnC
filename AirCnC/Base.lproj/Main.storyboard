@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OPR-IG-gat">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SMr-ho-zsB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-fV-0qm">
-                                <rect key="frame" x="0.0" y="20" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5gf-fV-0qm" secondAttribute="height" multiplier="3:2" id="IG5-KB-0EB"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-Qb-JyE">
-                                <rect key="frame" x="8" y="278" width="359" height="416"/>
+                                <rect key="frame" x="8" y="322" width="359" height="435"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-gh-bP4">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
@@ -166,8 +166,15 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uij-p0-g6q">
+                                        <rect key="frame" x="0.0" y="182" width="359" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="H0L-ZW-p2e"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PbR-NT-feB">
-                                        <rect key="frame" x="0.0" y="182" width="359" height="234"/>
+                                        <rect key="frame" x="0.0" y="201" width="359" height="234"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-qq-99i">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="18"/>
@@ -189,7 +196,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWM-RD-nGe">
-                                <rect key="frame" x="349" y="130" width="18" height="30"/>
+                                <rect key="frame" x="349" y="174" width="18" height="30"/>
                                 <state key="normal" image="right_arrow"/>
                                 <state key="disabled" image="right_arrow_gray"/>
                                 <connections>
@@ -197,7 +204,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-X0-ZUV">
-                                <rect key="frame" x="8" y="130" width="18" height="30"/>
+                                <rect key="frame" x="8" y="174" width="18" height="30"/>
                                 <state key="normal" image="left_arrow"/>
                                 <state key="disabled" image="left_arrow_gray"/>
                                 <connections>
@@ -238,8 +245,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1034" y="144"/>
         </scene>
-        <!--Explorer View Controller-->
+        <!--Explorer-->
         <scene sceneID="tA0-Jy-Mvi">
             <objects>
                 <tableViewController id="OPR-IG-gat" customClass="ExplorerViewController" customModule="AirCnC" customModuleProvider="target" sceneMemberID="viewController">
@@ -271,6 +279,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="detailSegue" id="FJ8-ef-4OL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -278,10 +289,29 @@
                             <outlet property="delegate" destination="OPR-IG-gat" id="eY4-sI-mZ6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Explorer" id="AOy-D2-fgg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNG-eR-Ohm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-510" y="145"/>
+            <point key="canvasLocation" x="260" y="143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rfZ-vy-fuo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SMr-ho-zsB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DNL-Gs-LaK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OPR-IG-gat" kind="relationship" relationship="rootViewController" id="582-IR-OY3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTx-zJ-0xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-511.19999999999999" y="144.3778110944528"/>
         </scene>
     </scenes>
     <resources>

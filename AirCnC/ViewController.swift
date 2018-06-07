@@ -20,15 +20,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     
+    // 상세 정보
+    var item: Item?
+    
     // 이미지 갤러리
     var currentImageIndex = 0
-    let images = [
-        "hattefjall_1",
-        "hattefjall_2",
-        "hattefjall_3",
-        "hattefjall_4",
-        "hattefjall_5"
-    ]
+    var images: [String] = []
     
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -71,20 +68,39 @@ class ViewController: UIViewController {
         // 초기 이미지는 첫번째 이미지이므로 왼쪽 버튼은 disabled로
         leftButton.isEnabled = false
         dateFormatter.dateStyle = .medium
+        
+        // 이미지 뷰 하단 구분선 그리기
+        let borderLayer = CALayer()
+        borderLayer.backgroundColor = UIColor.lightGray.cgColor
+        borderLayer.frame = CGRect(x: 0, y: self.imageView.frame.height - 0.5, width: self.imageView.frame.width, height: 0.5)
+        self.imageView.layer.addSublayer(borderLayer)
+
+        // 사용자 프로필 이미지를 둥글게
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        imageView.image = UIImage.init(named: "hattefjall")
-        
-        titleLabel.text = "HATTEFJÄLL"
-        
-        userImageView.image = #imageLiteral(resourceName: "franky")
-        userNameLabel.text = "프랭키"
-        
-        priceLabel.text = "10,000"
-        depthLabel.text = "68cm"
-        widthLabel.text = "68cm"
-        heightLabel.text = "110cm"
+        // 옵셔널
+        if let item = item {
+            titleLabel.text = item.name
+            userNameLabel.text = item.user.name
+            if let imageName = item.user.image {
+                userImageView.image = UIImage(named: imageName)
+            }
+            priceLabel.text = String(item.price)
+            
+            if let size = item.size {
+                depthLabel.text = "\(size.d)cm"
+                widthLabel.text = "\(size.w)cm"
+                heightLabel.text = "\(size.h)cm"
+            }
+            
+            images = item.detailImage ?? []
+            showImage(index: 0)
+            
+            self.title = item.name
+        }       
         
         // 날짜 레이블 설정
         handleDateChanged()
