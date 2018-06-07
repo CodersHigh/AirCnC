@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ReserveDateSelectDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var widthLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateSelectButton: UIButton!
     
     // 상세 정보
     var item: Item?
@@ -66,13 +66,53 @@ class ViewController: UIViewController {
     
     // 날짜 선택
     let dateFormatter = DateFormatter()
-    @IBOutlet weak var datePicker: UIDatePicker!
-    // valueChanged 이벤트와 연결
-    @IBAction func handleDateChanged() {
-        let dateStr = dateFormatter.string(from: datePicker.date)
-        dateLabel.text = dateStr
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectDateSegue",
+            let destVC = segue.destination as? DateSelectViewController {
+            destVC.delegate = self
+        }
+    }
+    
+    // 날짜 선택 취소
+    func reserveDateSelectCancelled() {
+        print("reserveDateSelectCancelled")
+    }
+    
+    // 날짜 선택
+    var reserveStartDate: Date?
+    var reserveEndDate: Date?
+    func reserveDateDidSelected(from: Date, to: Date) {
+        let title = "\(dateFormatter.string(from: from)) ~ \(dateFormatter.string(from: to))"
+        dateSelectButton.setTitle(title, for: .normal)
+        
+        reserveStartDate = from
+        reserveEndDate = to
     }
 
+    @IBAction func handleReserve(_ sender: Any) {
+        guard let start = reserveStartDate, let end = reserveEndDate else {
+            let dialog = UIAlertController(title: "날짜를 선택해주세요.", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            dialog.addAction(action)
+            self.present(dialog, animated: true, completion: nil)
+            return
+        }
+        
+        let message = "대여 기간 : \(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
+        let dialog = UIAlertController(title: "예약하시겠습니까?", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        dialog.addAction(confirmAction)
+        dialog.addAction(cancelAction)
+        
+        self.present(dialog, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 초기 이미지는 첫번째 이미지이므로 왼쪽 버튼은 disabled로
@@ -113,10 +153,7 @@ class ViewController: UIViewController {
             
             // 좋아요가 눌러졌는지 좋아요 버튼에 반영
             likeButton.isSelected = Liked.shared.isLiked(item)
-        }       
-        
-        // 날짜 레이블 설정
-        handleDateChanged()
+        }
     }
 
     override func didReceiveMemoryWarning() {

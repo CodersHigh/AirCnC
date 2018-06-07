@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-Qb-JyE">
-                                <rect key="frame" x="8" y="322" width="359" height="435"/>
+                                <rect key="frame" x="8" y="322" width="359" height="293"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-gh-bP4">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
@@ -173,26 +173,41 @@
                                             <constraint firstAttribute="height" constant="1" id="H0L-ZW-p2e"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PbR-NT-feB">
-                                        <rect key="frame" x="0.0" y="201" width="359" height="234"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbR-NT-feB">
+                                        <rect key="frame" x="0.0" y="201" width="359" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-qq-99i">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.32156862745098036" green="0.63529411764705879" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-Jh-H1m">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="4a2-47-1fh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IMn-JV-KWP">
-                                                <rect key="frame" x="0.0" y="18" width="359" height="216"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="550086360.89074802">
-                                                    <!--2018-06-07 17:46:00 +0000-->
-                                                </date>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ev-SQ-TmV">
+                                                <rect key="frame" x="60" y="0.0" width="299" height="30"/>
+                                                <state key="normal" title="예약 기간 설정"/>
                                                 <connections>
-                                                    <action selector="handleDateChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="1bp-hw-eC3"/>
+                                                    <segue destination="IJy-t1-a1C" kind="presentation" identifier="SelectDateSegue" id="Q3d-DR-JOs"/>
                                                 </connections>
-                                            </datePicker>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mm-mY-qMe">
+                                        <rect key="frame" x="0.0" y="249" width="359" height="44"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.63529411759999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="8WL-Ps-4sB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="예약하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleReserve:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hpb-Mj-gHt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWM-RD-nGe">
@@ -228,8 +243,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="zX9-qq-99i" id="s0h-i8-RMF"/>
-                        <outlet property="datePicker" destination="IMn-JV-KWP" id="4E6-Y9-JFe"/>
+                        <outlet property="dateSelectButton" destination="1ev-SQ-TmV" id="TWn-XZ-J6X"/>
                         <outlet property="depthLabel" destination="LD4-Jp-1ZT" id="hbx-aW-uXS"/>
                         <outlet property="heightLabel" destination="j9o-Yx-AX2" id="K1c-6Y-TCM"/>
                         <outlet property="imageView" destination="5gf-fV-0qm" id="eo6-nR-FZ9"/>
@@ -246,6 +260,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1972" y="143.47826086956522"/>
+        </scene>
+        <!--Date Select View Controller-->
+        <scene sceneID="lGf-fZ-ASy">
+            <objects>
+                <viewController id="IJy-t1-a1C" customClass="DateSelectViewController" customModule="AirCnC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cr2-Fk-Wgr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNc-TS-ALY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="Lyl-VV-kwC">
+                                        <connections>
+                                            <action selector="handleCancel:" destination="IJy-t1-a1C" id="kPw-1o-N9c"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fBu-jQ-h8B"/>
+                                    <barButtonItem systemItem="done" id="7fg-va-K3J">
+                                        <connections>
+                                            <action selector="handleDone:" destination="IJy-t1-a1C" id="wOG-83-CwW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-uS-bfX">
+                                <rect key="frame" x="8" y="72" width="359" height="492"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작날짜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY5-76-cB0">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5EN-QI-lVS">
+                                        <rect key="frame" x="0.0" y="26" width="359" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="550097530.030182">
+                                            <!--2018-06-07 20:52:10 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종료날짜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoX-a1-gAg">
+                                        <rect key="frame" x="0.0" y="250" width="359" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hje-dV-xNH">
+                                        <rect key="frame" x="0.0" y="276" width="359" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="550097533.52173102">
+                                            <!--2018-06-07 20:52:13 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4wa-L9-y01" firstAttribute="trailing" secondItem="Aff-uS-bfX" secondAttribute="trailing" constant="8" id="1nA-jf-tix"/>
+                            <constraint firstItem="Aff-uS-bfX" firstAttribute="top" secondItem="SNc-TS-ALY" secondAttribute="bottom" constant="8" id="5xb-u9-lon"/>
+                            <constraint firstItem="SNc-TS-ALY" firstAttribute="leading" secondItem="4wa-L9-y01" secondAttribute="leading" id="8Si-50-81T"/>
+                            <constraint firstItem="Aff-uS-bfX" firstAttribute="leading" secondItem="4wa-L9-y01" secondAttribute="leading" constant="8" id="Y9E-RY-bP9"/>
+                            <constraint firstItem="SNc-TS-ALY" firstAttribute="trailing" secondItem="4wa-L9-y01" secondAttribute="trailing" id="gNm-DY-xde"/>
+                            <constraint firstItem="SNc-TS-ALY" firstAttribute="top" secondItem="4wa-L9-y01" secondAttribute="top" id="pNm-BJ-3iK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4wa-L9-y01"/>
+                    </view>
+                    <connections>
+                        <outlet property="endDatePIcker" destination="hje-dV-xNH" id="wlH-dZ-0Q6"/>
+                        <outlet property="startDatePicker" destination="5EN-QI-lVS" id="rRu-rJ-8YY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gj-70-D4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="152"/>
         </scene>
         <!--Explorer-->
         <scene sceneID="tA0-Jy-Mvi">
@@ -386,6 +474,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d7G-uQ-6nz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hDN-Wv-VUU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

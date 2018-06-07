@@ -1,6 +1,6 @@
 # Coder's High AirCnC Example
 
-## Step5 멀티 씬
+## Step6 모달
 
 - 탭바 컨트롤러를 이용해서 병렬 씬 구조 만들기
 - 탭 기반의 씬에서 데이터 공유
