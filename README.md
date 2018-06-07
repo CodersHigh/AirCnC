@@ -1,6 +1,6 @@
 # Coder's High AirCnC Example
 
-## 씬과 뷰
+## Step1 씬과 뷰
 
   - 씬에 뷰 배치하기
   - 씬의 라이프사이클
