@@ -8,4 +8,4 @@
   - 이미지와 애셋
   - Outlet과 콘텐츠 입력
 
-![](https://github.com/CodersHigh/AirCnC/blob/master/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step1/Sceenshot.png?raw=true)
