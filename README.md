@@ -1,10 +1,9 @@
 # Coder's High AirCnC Example
 
-## Step6 모달
+## Step7 커스텀 셀
 
-- 모달 씬 전환
-- UnwindSegue를 이용해서 모달 값 전달
-- UIAlertViewController를 이용한 다이얼로그 사용
-- UIImagePIckerController를 이용해서 이미지 선택
+- 콜렉션 뷰를 이용한 그리스 스타일의 씬 작성
+- 테이블 뷰를 이용해서 씬의 일부를 목록으로 사용하기
+- 테이블 뷰의 커스텀 셀을 이용해서 예약 내역 출력
 
-![](https://github.com/CodersHigh/AirCnC/blob/Step6/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step7/Sceenshot.png?raw=true)

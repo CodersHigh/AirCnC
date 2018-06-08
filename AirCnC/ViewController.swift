@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         let message = "대여 기간 : \(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
         let dialog = UIAlertController(title: "예약하시겠습니까?", message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) { (action) in
-            // TODO : 예약하기
+            Reservation.shared.addReserve(item: self.item!, from: start, to: end)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         dialog.addAction(confirmAction)
