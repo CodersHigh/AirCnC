@@ -7,4 +7,4 @@
 - UIAlertViewController를 이용한 다이얼로그 사용
 - UIImagePIckerController를 이용해서 이미지 선택
 
-![](https://github.com/CodersHigh/AirCnC/blob/Step5/Sceenshot.png?raw=true)
+![](https://github.com/CodersHigh/AirCnC/blob/Step6/Sceenshot.png?raw=true)
