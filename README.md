@@ -2,8 +2,9 @@
 
 ## Step6 모달
 
-- 탭바 컨트롤러를 이용해서 병렬 씬 구조 만들기
-- 탭 기반의 씬에서 데이터 공유
-- 테이블 뷰에서 항목 삭제
+- 모달 씬 전환
+- UnwindSegue를 이용해서 모달 값 전달
+- UIAlertViewController를 이용한 다이얼로그 사용
+- UIImagePIckerController를 이용해서 이미지 선택
 
 ![](https://github.com/CodersHigh/AirCnC/blob/Step5/Sceenshot.png?raw=true)

@@ -8,33 +8,27 @@
 
 import UIKit
 
-@objc protocol ReserveDateSelectDelegate: class {
-    @objc optional func reserveDateSelectCancelled()
-    func reserveDateDidSelected(from: Date, to: Date)
-}
-
 class DateSelectViewController: UIViewController {
 
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePIcker: UIDatePicker!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
-    weak var delegate: ReserveDateSelectDelegate?
+    // 두 데이트피커의 valueChanged 이벤트 연결
+    @IBAction func handleDateChange() {
+        // 시작일이 종료일보다 앞서는 것을 막음
+        doneButton.isEnabled = endDatePIcker.date >= startDatePicker.date
+    }
     
     @IBAction func handleCancel(_ sender: Any) {
-        // 델리게이트 존재 확인, 옵셔널 함수 존재 확인
-        if let delegate = delegate,
-            let cancelFn = delegate.reserveDateSelectCancelled {
-            cancelFn()
-        }
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func handleDone(_ sender: Any) {
-        // 델리게이트가 존재하면 사용자가 선택한 값을 전달
-        if let delegate = delegate {
-            delegate.reserveDateDidSelected(from: startDatePicker.date, to: endDatePIcker.date)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? ViewController {
+            destVC.reserveStartDate = startDatePicker.date
+            destVC.reserveEndDate = endDatePIcker.date
         }
-        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

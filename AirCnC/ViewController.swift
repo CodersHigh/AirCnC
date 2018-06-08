@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, ReserveDateSelectDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -67,13 +67,8 @@ class ViewController: UIViewController, ReserveDateSelectDelegate {
     // 날짜 선택
     let dateFormatter = DateFormatter()
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SelectDateSegue",
-            let destVC = segue.destination as? DateSelectViewController {
-            destVC.delegate = self
-        }
+    // Unwind Segue
+    @IBAction func dateSelected(segue: UIStoryboardSegue) {
     }
     
     // 날짜 선택 취소
@@ -82,14 +77,21 @@ class ViewController: UIViewController, ReserveDateSelectDelegate {
     }
     
     // 날짜 선택
-    var reserveStartDate: Date?
-    var reserveEndDate: Date?
-    func reserveDateDidSelected(from: Date, to: Date) {
-        let title = "\(dateFormatter.string(from: from)) ~ \(dateFormatter.string(from: to))"
-        dateSelectButton.setTitle(title, for: .normal)
-        
-        reserveStartDate = from
-        reserveEndDate = to
+    var reserveStartDate: Date? {
+        didSet {
+            showReserveDay()
+        }
+    }
+    var reserveEndDate: Date? {
+        didSet {
+            showReserveDay()
+        }
+    }
+    func showReserveDay() {
+        if let start = reserveStartDate, let end = reserveEndDate {
+            let title = "\(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
+            dateSelectButton.setTitle(title, for: .normal)
+        }
     }
 
     @IBAction func handleReserve(_ sender: Any) {
@@ -104,7 +106,7 @@ class ViewController: UIViewController, ReserveDateSelectDelegate {
         let message = "대여 기간 : \(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
         let dialog = UIAlertController(title: "예약하시겠습니까?", message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) { (action) in
-            
+            // TODO : 예약하기
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         dialog.addAction(confirmAction)
@@ -160,4 +162,3 @@ class ViewController: UIViewController, ReserveDateSelectDelegate {
         super.didReceiveMemoryWarning()
     }
 }
-
