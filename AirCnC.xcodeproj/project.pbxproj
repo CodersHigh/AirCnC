@@ -20,6 +20,7 @@
 		2CB8E26F20C9AE4600186AB5 /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E26E20C9AE4600186AB5 /* ExplorerViewController.swift */; };
 		2CB8E27120C9B99A00186AB5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E27020C9B99A00186AB5 /* Models.swift */; };
 		2CB8E27620C9CE7C00186AB5 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8E27520C9CE7C00186AB5 /* SavedTableViewController.swift */; };
+		2CE8B0F720F51A94003B0543 /* ReserveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8B0F620F51A94003B0543 /* ReserveCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2CB8E26E20C9AE4600186AB5 /* ExplorerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
 		2CB8E27020C9B99A00186AB5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2CB8E27520C9CE7C00186AB5 /* SavedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
+		2CE8B0F620F51A94003B0543 /* ReserveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				2C1B728320C9D388000F104F /* DateSelectViewController.swift */,
 				2C1B728520CA3C30000F104F /* ProfileViewController.swift */,
 				2CA8AAAC20C9630000C97AA9 /* Main.storyboard */,
+				2CE8B0F620F51A94003B0543 /* ReserveCell.swift */,
 				2CA8AAAF20C9630100C97AA9 /* Assets.xcassets */,
 				2CA8AAB120C9630100C97AA9 /* LaunchScreen.storyboard */,
 				2CA8AAB420C9630100C97AA9 /* Info.plist */,
@@ -169,6 +172,7 @@
 				2C1B728820CA4C7B000F104F /* ExplorerCollectionViewController.swift in Sources */,
 				2CB8E27120C9B99A00186AB5 /* Models.swift in Sources */,
 				2C1B728420C9D388000F104F /* DateSelectViewController.swift in Sources */,
+				2CE8B0F720F51A94003B0543 /* ReserveCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

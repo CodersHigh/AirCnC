@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="143.47826086956522"/>
+            <point key="canvasLocation" x="1858" y="143"/>
         </scene>
         <!--Date Select View Controller-->
         <scene sceneID="lGf-fZ-ASy">
@@ -462,7 +462,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zn7-xZ-Pme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="119.1904047976012"/>
+            <point key="canvasLocation" x="1145" y="143"/>
         </scene>
         <!--Explorer-->
         <scene sceneID="rfZ-vy-fuo">
@@ -633,7 +633,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuL-G9-cR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285.60000000000002" y="1045.7271364317842"/>
+            <point key="canvasLocation" x="279" y="901"/>
         </scene>
         <!--Saved-->
         <scene sceneID="3B6-ge-EAl">

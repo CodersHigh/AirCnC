@@ -8,12 +8,6 @@
 
 import UIKit
 
-class ReserveCell: UITableViewCell {
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var reserveDateLabel: UILabel!
-}
-
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
