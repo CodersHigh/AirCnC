@@ -76,9 +76,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReserveCell", for: indexPath) as! ReserveCell
         
         let reserve = Reservation.shared.reserves[indexPath.row]
+        let itemId = reserve.itemId
+        guard let item = ReserveItem.item(with: itemId) else {
+            return cell
+        }
         
-        cell.itemImageView.image = UIImage(named: reserve.item.thumbnail)
-        cell.itemNameLabel.text = reserve.item.name
+        cell.itemImageView.image = UIImage(named: item.thumbnail)
+        cell.itemNameLabel.text = item.name
         
         let plateAttr = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]
         let dateAttr = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold),
