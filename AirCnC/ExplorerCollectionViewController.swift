@@ -14,11 +14,50 @@ class ItemCell: UICollectionViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
 }
 
-class ExplorerCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ExplorerCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchControllerDelegate, UISearchResultsUpdating {
+    
+    var searched: [Item] = []
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        print("willPresentSearchController")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        print("willDismissSearchController")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        print("didPresentSearchController")
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        print("didDismissSearchController")
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let keyword = searchController.searchBar.text!
+        searched.removeAll()
+        searched = ReserveItem.items.filter({ (item) -> Bool in
+            return item.name.lowercased().contains(keyword.lowercased()) || item.user.name.lowercased().contains(keyword.lowercased())
+        })
+        collectionView?.reloadData()
+    }
 
+    var searchController: UISearchController!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 동일한 신을 검색 결과로 사용하는 경우에는 nil로 생성
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
 
+        // 내비게이션 바에 결합하기
+        self.navigationItem.searchController = searchController
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +80,13 @@ class ExplorerCollectionViewController: UICollectionViewController, UICollection
         return CGSize(width: width, height: height)
     }
     
-    
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ReserveItem.items.count
+        if searchController.isActive {
+            return searched.count
+        }
+        else {
+            return ReserveItem.items.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,7 +96,13 @@ class ExplorerCollectionViewController: UICollectionViewController, UICollection
         cell.contentView.layer.borderWidth = 0.5
         cell.contentView.layer.cornerRadius = 3
         
-        let item = ReserveItem.items[indexPath.item]
+        let item: Item
+        if searchController.isActive {
+            item = searched[indexPath.item]
+        }
+        else {
+            item = ReserveItem.items[indexPath.item]
+        }
         
         cell.itemImageView.image = UIImage(named: item.thumbnail)
         cell.itemNameLabel.text = item.name
@@ -62,5 +110,4 @@ class ExplorerCollectionViewController: UICollectionViewController, UICollection
     
         return cell
     }
-
 }
